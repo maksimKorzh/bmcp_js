@@ -1,0 +1,30 @@
+.fl {
+    float:left;
+}
+
+.board {
+    max-width:512px;
+    margin: 0 auto;
+}
+
+.light-sq {
+    max-height: 64px;
+    max-width: 64px;
+    width:12.5%;
+    padding-bottom:12.5%;
+    background-color:#E6E6FA;
+}
+
+.dark-sq {
+    max-height: 64px;
+    max-width: 64px;
+    width:12.5%;
+    padding-bottom: 12.5%;
+    background-color: #708090;
+}
+
+.piece {
+    position:absolute
+    max-width: 100%;
+    max-height: 100%;
+}

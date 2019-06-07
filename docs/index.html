@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>Bare minimum chess program in javascript</title>
+
+    <!-- load bootstrap styles -->
+    <link rel="stylesheet" type="text/css" href="UI/bootstrap/dist/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="UI/bootstrap/dist/css/styles.css" media="screen" />
+    
+    <!-- Header -->
+    <h3 class="list-group-item font-weight-bold bg-secondary text-white text-center">
+      Bare minimum chess program in javascript
+    </h3>
+  </head>
+  
+  <body>
+    <!-- Links -->
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item list-item-action">
+        <a class="dropdown-item" href="https://github.com/maksimKorzh/bmcp_js">Source code</a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item " href="mailto:freesoft.for.people@gmail.com">Write to Author</a>
+      </li>    </ul>
+    </ul>
+    
+    <!-- Background -->
+    <div class="card">
+      <div class="card-body">
+        
+        <!-- User space -->
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              
+              <!-- Chess board -->
+              <div class="col-md-8" id="chess_board">
+                <!-- Chess board is rendered here via javascript -->  
+              </div>
+              
+              <!-- User menu -->
+              <div class="col-md-4">
+                <div class="btn-group col mx-auto">
+                  <button type="button" class="btn btn-lg btn-outline-secondary" onClick="Think(search_depth)">Move!</button>
+                  <div class="dropdown">
+                    <button class="btn btn-lg btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Difficulty
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <button class="dropdown-item" onclick="search_depth = 3">Beginner</button>
+                      <button class="dropdown-item" onclick="search_depth = 4">Intermediate</button>
+                      <button class="dropdown-item" onclick="search_depth = 5">Advanced</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <ul class="list-group">
+                  <li class="btn"></li>
+                  <li class="btn"></li>
+                  <li class="list-group-item font-weight-bold bg-secondary text-white">Side to move</li>
+                  <li class="list-group-item font-weight-bold" id="side">White</li>
+                  <li class="btn"></li>
+                  <li class="list-group-item font-weight-bold bg-secondary text-white">Score</li>
+                  <li class="list-group-item font-weight-bold" id="score">0</li>
+                  <li class="btn"></li>
+                  <li class="list-group-item font-weight-bold bg-secondary text-white">Best move</li>
+                  <li class="list-group-item font-weight-bold" id="move">No move</li>
+                  <li class="btn"></li>
+                  <li class="list-group-item font-weight-bold bg-secondary text-white">Search depth</li>
+                  <li class="list-group-item font-weight-bold" id="depth">3 ply</li>
+                  <li class="btn"></li>
+                  
+                </ul>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+    <script src="UI/jquery/dist/jquery.js"></script>
+    <script src="UI/bootstrap/js/dist/popper.min.js"></script>
+    <script src="UI/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="Engine/bmcp.js"></script>
+  </body>
+  
+  <footer>
+  <!-- Header -->
+    <div class="list-group-item font-weight-bold bg-secondary text-white text-center">
+      Copyright 2019 Maksym Korzh
+    </div>
+  </footer>
+  
+</html>
+
+
