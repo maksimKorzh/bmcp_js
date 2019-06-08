@@ -1,4 +1,4 @@
-# bmcp_js
+# BMCP(JS)
 Bare minimum chess program in pure javascript with UI, based on ideas taken from micro-Max by H.G. Muller
 
 # Dedication
