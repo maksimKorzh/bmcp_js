@@ -1,3 +1,57 @@
+/*********************************************************************************\
+;                                 BMCP(JS) v1.0                                   ;
+;---------------------------------------------------------------------------------;
+;                    A tribute to chess programming community                     ;
+;              based on the ideas taken from micro-Max by H.G.Muller              ;
+;---------------------------------------------------------------------------------;
+;                                by Maksim Korzh                                  ;
+;---------------------------------------------------------------------------------;
+\*********************************************************************************/
+
+/*********************************************************************************\
+;---------------------------------------------------------------------------------;
+;           THIS WORK IS DEDICATED TO HOBBY PROGRAMMERS WHO AIMS TO GET           ;
+;                        THE VERY GIST OF CHESS PROGRAMMING                       ;
+;---------------------------------------------------------------------------------;
+;       "A vague understanding of your goals leads to unpredictable results       ;
+;             and abandoning the project halfway..." - my experience              ;
+;---------------------------------------------------------------------------------;
+\*********************************************************************************/
+
+/*********************************************************************************\
+;---------------------------------------------------------------------------------;
+;        Copyright © 2018 Maksim Korzh <freesoft.for.people@gmail.com>            ;
+;---------------------------------------------------------------------------------;
+;     This work is free. You can redistribute it and/or modify it under the       ;
+;      terms of the Do What The Fuck You Want To Public License, Version 2,       ;
+;       as published by Sam Hocevar. See the COPYING file for more details.       ;
+;---------------------------------------------------------------------------------;
+'       THIS PROGRAM IS FREE SOFTWARE. IT COMES WITHOUT ANY WARRANTY, TO          ;
+;        THE EXTENT PERMITTED BY APPLICABLE LAW. YOU CAN REDISTRIBUTE IT          ;
+;       AND/OR MODIFY IT UNDER THE TERMS OF THE DO WHAT THE FUCK YOU WANT         ;
+;          TO PUBLIC LICENCE, VERSION 2, AS PUBLISHED BY SAM HOCEVAR.             ;
+;                SEE http://www.wtfpl.net/ FOR MORE DETAILS.                      ;
+;---------------------------------------------------------------------------------;
+\*********************************************************************************/
+
+/*********************************************************************************\
+;---------------------------------------------------------------------------------;
+;                   DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE                   ;
+;                           Version 2, December 2004                              ;
+;                                                                                 ;
+;        Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>                         ;
+;                                                                                 ;
+;        Everyone is permitted to copy and distribute verbatim or modified        ;
+;        copies of this license document, and changing it is allowed as long      ;
+;        as the name is changed.                                                  ;
+;                                                                                 ;
+;                   DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE                   ;
+;          TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION        ;
+;                                                                                 ;
+;         0. You just DO WHAT THE FUCK YOU WANT TO.                               ;
+;---------------------------------------------------------------------------------;
+\*********************************************************************************/
+
 /****************************************************************************
  *                                 Globals                                  *
  ***************************************************************************/
