@@ -246,26 +246,27 @@ function Think(depth){
   
   // change side
   side = 24 - side;
-  DrawPieces();
   
   // Checkmate detection
   if(score == 10000){
-    window.onbeforeunload = function(){
-      return true;
-    };
-
-    alert("White is checkmated!");
-    location.reload();
+    DrawPieces();
+    setTimeout(
+      function(){
+        alert("White is checkmated!");
+        location.reload();
+      }, 100);
   }
   
   else if(score == -10000){
-    window.onbeforeunload = function(){
-      return true;
-    };
-
-    alert("Black is checkmated!");
-    location.reload();
+    setTimeout(
+      function(){
+        alert("Black is checkmated!");
+        location.reload();
+      }, 100);
   }
+  
+  else
+    DrawPieces();
   
   // update UI
   document.getElementById('score').innerHTML = score;
@@ -347,8 +348,8 @@ function MakeMove (sq) {
     click_lock ^= 1;
     
     // update position
-	  DrawPieces();
-	  Think(search_depth);
+    DrawPieces();
+    setTimeout("Think(search_depth)", 100);
   }
 }
 
