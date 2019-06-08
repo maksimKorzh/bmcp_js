@@ -241,7 +241,7 @@ function SearchPosition(side, depth, alpha, beta)    // returns best move's scor
                         if(type < 3)    // if pawn
                         {
                             if(dst_square + step_vector + 1 & 0x80)    // goes to the 1th/8th rank
-                                board[dst_square]|=7;    // convert it to queen
+                                board[dst_square] |= 7;    // convert it to queen
                         }
                         
                         score = -SearchPosition(24 - side, depth - 1, -beta, -alpha);    // recursive negamax search call
@@ -297,6 +297,11 @@ function Think(depth){
   // make AI move
   board[best_dst] = board[best_src];
   board[best_src] = 0;
+  
+  // if pawn promotion
+  if(((board[best_dst] == 9) && (best_dst >= 0 && best_dst <= 7)) ||
+     ((board[best_dst] == 18) && (best_dst >= 112 && best_dst <= 119)))
+      board[best_dst] |= 7;    // convert pawn to corresponding side's queen
   
   // change side
   side = 24 - side;
@@ -394,6 +399,11 @@ function MakeMove (sq) {
     // move piece
     board[click_sq] = board[user_src];
     board[user_src] = 0;
+    
+    // if pawn promotion
+    if(((board[click_sq] == 9) && (click_sq >= 0 && click_sq <= 7)) ||
+       ((board[click_sq] == 18) && (click_sq >= 112 && click_sq <= 119)))
+        board[click_sq] |= 7;    // convert pawn to corresponding side's queen
     
     // change side
     side = 24 - side;
