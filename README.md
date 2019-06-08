@@ -1,14 +1,14 @@
 # bmcp_js
 Bare minimum chess program in pure javascript with UI, based on ideas taken from micro-Max by H.G. Muller
 
-# Overview
+# Dedication
+I dedicate this chess program to my YouTube subscribers and all chess programming enthusiasts
+looking rather for minimalist implementation than playing strength.
 
-    A large chess programming community helped me a lot over last three years, now I want to give
-    it something back. Nibble chess is a simple console based chess program which can be extended
-    to UCI chess engine. It's not intended to be used by end users, but by beginner programmers
-    who looks for some sort of resources to get started with. I wish I could have such program
-    when just started to learn chess programming. The source is mostly based on H.G. Muller's ideas, as
-    they are implemented in his micro-Max engine.
+# YouTube tutorial series on the engine used in this program
+Originally I've written bmcp in C - here's the tutorial series, explaining the chess playing algorithm.
+The program's design allows you to easily convert C version to javascript. Have fun!
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/927rfAPHX6E/0.jpg)](https://www.youtube.com/watch?v=927rfAPHX6E&list=PLLfIBXQeu3abJwgFt7JPFGVpxazkGoh16)
 
 # Play online
 https://maksimkorzh.github.io/bmcp_js/
