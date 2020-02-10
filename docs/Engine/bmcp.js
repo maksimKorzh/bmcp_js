@@ -358,7 +358,7 @@ function DrawBoard(){
   chess_board += '</div>';
   
   // render chess board to screen
-  document.getElementById('chess_board').innerHTML = chess_board;  
+  document.getElementById('chess_board').innerHTML = chess_board;
 }
 
 function DrawPieces(){

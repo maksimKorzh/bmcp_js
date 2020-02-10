@@ -1,105 +1,202 @@
 <html>
   <head>
+    <!-- SEO -->
+    <meta name="description" content="free online minimalist chess written in pure javascript | change style of play by tuning evaluation scores">
+    <meta name="keywords" content="free online chess minimalist change written in pure javascript style of play by tuning evaluation scores">
+      
     <title>Bare minimum chess program in javascript</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- load bootstrap styles -->
     <link rel="stylesheet" type="text/css" href="UI/bootstrap/dist/css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="UI/bootstrap/dist/css/styles.css" media="screen" />
     
-    <!-- Header -->
-    <h3 class="list-group-item font-weight-bold bg-secondary text-white text-center">
-      Bare minimum chess program in javascript
-    </h3>
+    <!-- Analytics -->
+    <!--script type="text/javascript">
+      $.post('https://cmkanalytics.herokuapp.com/api/post', {
+        date: new Date,
+        url: window.location.href
+      });
+    </script-->
+    
   </head>
   
-  <body>
-    <!-- Links -->
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item list-item-action">
-        <a class="dropdown-item" href="https://github.com/maksimKorzh/bmcp_js">Source code</a>
-      </li>
-      <li class="nav-item">
-        <a class="dropdown-item " href="mailto:freesoft.for.people@gmail.com">Write to Author</a>
-      </li>    </ul>
-    </ul>
-    
-    <!-- Background -->
+  <body>        
+    <!-- User space -->
     <div class="card">
       <div class="card-body">
-        
-        <!-- User space -->
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              
-              <!-- Chess board -->
-              <div class="col-md-8" id="chess_board">
-                <!-- Chess board is rendered here via javascript -->
-              </div>
-              
-              <!-- User menu -->
-              <div class="col-md-4">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-outline-secondary" onClick="location.reload()">New game</button>
-                  <button type="button" class="btn btn-outline-secondary" onClick="Think(search_depth)">Move!!!</button>
-                  <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Difficulty
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <button class="dropdown-item" onclick="search_depth = 3">Beginner</button>
-                      <button class="dropdown-item" onclick="search_depth = 4">Intermediate</button>
-                      <button class="dropdown-item" onclick="search_depth = 5">Advanced</button>
-                    </div>
-                  </div>
-                </div>
-                
-                <ul class="list-group">
-                  <li class="btn"></li>
-                  <li class="btn"></li>
-
-                  <!-- Score -->
-                  <li class="list-group-item font-weight-bold bg-secondary text-white">Score</li>
-                  <li class="list-group-item font-weight-bold" id="score">0</li>
-                  <li class="btn"></li>
-
-                  <!-- Best move -->
-                  <li class="list-group-item font-weight-bold bg-secondary text-white">Best move</li>
-                  <li class="list-group-item font-weight-bold" id="move">No move</li>
-                  <li class="btn"></li>
-
-                  <!-- Search depth -->
-                  <li class="list-group-item font-weight-bold bg-secondary text-white">Search depth</li>
-                  <li class="list-group-item font-weight-bold" id="depth">3 ply</li>
-                  <li class="btn"></li>
-
-                  <!-- Side to move -->
-                  <li class="list-group-item font-weight-bold bg-secondary text-white">Side to move</li>
-                  <li class="list-group-item font-weight-bold" id="side">White</li>
-                  <li class="btn"></li>
-                  
-                </ul>
-                
-              </div>
-              
+        <div class="row">
+          
+          <!-- Chess board -->
+          <div id="board_contatiner" class="col-8">
+            <div id="chess_board">
+              <!-- Chess board is rendered here via javascript -->
             </div>
           </div>
+          
+          <!-- User menu -->
+          <div class="col-4">
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-secondary" onClick="location.reload()">New game</button>
+              <button type="button" class="btn btn-outline-secondary" onClick="Think(search_depth)">Move!!!</button>
+              <button class="btn btn-outline-secondary" id="tune">Tune evaluation</button>
+            </div>
+            
+            <div class="dropdown mt-2">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Difficulty
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button class="dropdown-item" onclick="search_depth = 3">Beginner</button>
+                  <button class="dropdown-item" onclick="search_depth = 4">Intermediate</button>
+                  <button class="dropdown-item" onclick="search_depth = 5">Advanced</button>
+                </div>
+              </div>
+            
+            <ul class="list-group">
+              <li class="btn"></li>
+              <li class="btn"></li>
+
+              <!-- Score -->
+              <li class="list-group-item font-weight-bold bg-light">Score:</li>
+              <li class="list-group-item" id="score">0</li>
+              <li class="btn"></li>
+
+              <!-- Best move -->
+              <li class="list-group-item font-weight-bold bg-light">Best move:</li>
+              <li class="list-group-item" id="move">No move</li>
+              <li class="btn"></li>
+
+              <!-- Search depth -->
+              <li class="list-group-item font-weight-bold bg-light">Search depth:</li>
+              <li class="list-group-item" id="depth">3 ply</li>
+              <li class="btn"></li>
+
+              <!-- Side to move -->
+              <li class="list-group-item font-weight-bold bg-light">Side to move:</li>
+              <li class="list-group-item" id="side">White</li>
+              <li class="btn"></li>
+              
+            </ul>
+            
+          </div>
+          
         </div>
-        
       </div>
     </div>
+  
   
     <script src="UI/jquery/dist/jquery.js"></script>
     <script src="UI/bootstrap/js/dist/popper.min.js"></script>
     <script src="UI/bootstrap/dist/js/bootstrap.js"></script>
     <script src="Engine/bmcp.js"></script>
+    
+    <!-- Credits: https://gist.github.com/veganista/6413299 -->
+    <script src="UI/array2table.js"></script>
+    
+    <script>
+     user_eval = [
+          [0,  0,  0,  0,  0,  0,  0,  0],
+
+          [0,  0,  5,  5,  0,  0,  5,  0],
+          [5,  5,  0,  0,  0,  0,  5,  5],
+          [5, 10, 15, 20, 20, 15, 10,  5],
+          [5, 10, 20, 30, 30, 20, 10,  5],  
+          [5, 10, 20, 30, 30, 20, 10,  5],
+          [5, 10, 15, 20, 20, 15, 10,  5],
+          [5,  5,  0,  0,  0,  0,  5,  5],
+          [0,  0,  5,  5,  0,  0,  5,  0]
+      ]
+    
+      $('#tune').on('click', () => {
+        if (!$('#evaluation').length) {
+          $('#chess_board').remove();  
+          
+          var evaluation = arrayToTable(user_eval, {
+            attrs: {class: ''}
+          })
+
+          $('#board_contatiner').append(evaluation);
+          $('#board_contatiner').append('<div id="done" class="text-center">' + 
+                                        '<button class="btn btn-outline-secondary col-4 mt-4 mr-5" onclick="reset_eval()">Reset</button>' +
+                                        '<button class="btn btn-outline-secondary col-4 mt-4 ml-5" onclick="done()">Done</button>' +
+                                        '</div>');
+        }
+      });
+      
+      function done() {
+        // store user eval
+        user_eval = []
+
+        $('tr').each(function() {
+            var row = [];
+            
+            // extract input values
+            var inputs = $(this).find('input');
+            inputs.each((cells) => {
+              row.push(Number($(inputs[cells]).val()))
+            });
+            
+            // push row to user eval
+            user_eval.push(row)
+        });
+
+        // update evaluation
+        for (var row = 0; row < user_eval.length; row++) {
+          if (row) {
+            for (var col = 0; col < user_eval[row].length; col++) {
+              eval_index = (row - 1) * 16 +  col + 8;
+              board[eval_index] = user_eval[row][col];
+            }
+          }
+        }
+        
+        console.log(board)
+      
+        // refresh elements
+        $('#evaluation').remove();
+        $('#board_contatiner').append('<div id="chess_board"></div>');
+        $('#done').remove();
+        
+        // render board
+        DrawBoard();
+        DrawPieces();
+      }
+      
+      function reset_eval() {
+        // reset eval
+        $('tr').each(function() {
+            // extract inputs
+            var inputs = $(this).find('input');
+            
+            // reset input values
+            inputs.each((cells) => {
+              $(inputs[cells]).val(0)
+            });
+        });
+      }
+    </script>
   </body>
   
   <footer>
-  <!-- Header -->
-    <div class="list-group-item font-weight-bold bg-secondary text-white text-center">
-      Copyright 2019 Maksym Korzh
-    </div>
+  
+  <!-- Footer -->
+    <ul class="nav nav-pills nav-fill bg-light">
+      <li class="nav-item list-item-action">
+        <a class="btn btn-outline-secondary col-10 mt-2" href="https://github.com/maksimKorzh/bmcp_js">Source code</a>
+      </li>
+      <li class="nav-item">
+        <div class="mt-3 font-weight-bold bg-light text-center">
+          Copyright 2019 Maksym Korzh
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-outline-secondary col-10 mt-2" href="mailto:freesoft.for.people@gmail.com">Write to Author</a>
+      </li>
+    </ul>
+    
   </footer>
   
 </html>
