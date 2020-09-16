@@ -22,6 +22,13 @@ The program's design allows you to easily convert C version to javascript. Have 
     - very basic alpha-beta search
     - web interface
 
+# Limitations
+  - no 3 fold repetition detection
+  - no 50 move rule detection
+
+# known bugs
+  - doesn't find the closest mating line
+
 # Contributions
 
     Any forks and contributions are appriciated. Feel free to contact me on any questions
