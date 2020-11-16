@@ -8,9 +8,7 @@ https://maksimkorzh.github.io/bmcp_js/
 I dedicate this chess program to my YouTube subscribers and all chess programming enthusiasts
 looking rather for minimalist implementation than playing strength.
 
-# YouTube tutorial series on the engine used in this program
-Originally I've written bmcp in C - here's the tutorial series, explaining the chess playing algorithm.
-The program's design allows you to easily convert C version to javascript. Have fun!
+# YouTube tutorial
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1O1xOdbQlDM/0.jpg)](https://www.youtube.com/watch?v=1O1xOdbQlDM)
 
 # Features
