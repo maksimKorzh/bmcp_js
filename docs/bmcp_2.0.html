@@ -489,15 +489,20 @@
     catch (e) {/* nothing to remove when board wasn't initially rendered */}
     
     // add classes for highlighting
-    /*document.write(`
-    <head>
+    document.write(`
       <style>
         .highlight { box-shadow: inset 0px 0px 3px 3px #ff3300; }
         .mate { box-shadow: inset 0px 0px 5px 5px red; }
-      </style></head>`);*/
+      </style>
+    `);
+    
+    var chessBoard = `<table id="board"
+                             bgcolor="#996633"
+                             align="center"
+                             cellspacing="1"`;
     
     // create HTML table tag (disable text selection, adjust mouse pointer)
-    var chessBoard = `<table id="board"
+    /*var chessBoard = `<table id="board"
                              bgcolor="#996633"
                              align="center"
                              cellspacing="1"
@@ -513,7 +518,7 @@
                              onmousedown="return false;"
                              ontouchstart="(e) => {e.event.stopPropagation()}"
                              ontouchcancel="(e) => {e.event.stopPropagation()}"`;
-
+*/
     // loop over board rows
     for (var row = 0; row < 8; row++)
     {     
