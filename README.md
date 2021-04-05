@@ -2,7 +2,9 @@
 Bare minimum chess program in pure javascript with UI, based on ideas taken from micro-Max by H.G. Muller
 
 # Play online
-https://maksimkorzh.github.io/bmcp_js/
+https://maksimkorzh.github.io/bmcp_js/chess.html<br>
+https://maksimkorzh.github.io/bmcp_js/<br>
+https://maksimkorzh.github.io/bmcp_js/bmcp_2.0.html<br>
 
 # Dedication
 I dedicate this chess program to my YouTube subscribers and all chess programming enthusiasts
