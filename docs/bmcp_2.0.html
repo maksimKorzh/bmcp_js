@@ -511,8 +511,8 @@
                              unselectable="on"
                              onselectstart="return false;" 
                              onmousedown="return false;"
-                             ontouchstart="return false"
-                             ontouchcancel="return false;"`;
+                             ontouchstart="(e) => {e.preventDefault && e.preventDefault()}"
+                             ontouchcancel="(e) => {e.preventDefault && e.preventDefault()}"`;
 
     // loop over board rows
     for (var row = 0; row < 8; row++)
