@@ -497,6 +497,7 @@
     
     // create HTML table tag (disable text selection, adjust mouse pointer)
     var chessBoard = `<table id="board"
+                             ontouch="(e) => {e.preventDefault();}"
                              bgcolor="#996633"
                              align="center"
                              cellspacing="1"
@@ -539,7 +540,7 @@
           // create table cell
           chessBoard += '<td align="center" id="' + square + 
                          '"bgcolor="#' + ( ((col + row) % 2) ? 'd9b38c' : 'fff5e6') +
-                         '" width="70" height="70" style="font-size: 50px;"' +
+                         '" width="65" height="65" style="font-size: 50px;"' +
                          ' onclick="makeUserMove(this.id)">' + pieces[board[square] & 15] +
                          '</td>';
       }
