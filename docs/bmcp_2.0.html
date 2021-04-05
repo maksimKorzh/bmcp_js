@@ -178,7 +178,7 @@
   \******************************/
 
   // search board position for the best move
-  function searchF(sideToMove, alpha, beta, depth, validate) {
+  function search(sideToMove, alpha, beta, depth, validate) {
     // we are in the leaf node
     if (depth == 0) {
       // static evaluation score
@@ -326,8 +326,14 @@
     return alpha;
   }
 
-document.write('breakpoint3');
-/*  
+
+  /******************************\
+   ==============================
+
+                GUI
+
+   ==============================
+  \******************************/
 
   // handle user input
   function makeUserMove(sq) {
@@ -404,7 +410,7 @@ document.write('breakpoint3');
       setTimeout("makeEngineMove(searchDepth)", 100);
     }
   }
-  document.write('breakpoint4');
+
   // take user move back if illegal
   function takeUserMoveBack(boardCopy) {
     // restore board position
@@ -418,7 +424,7 @@ document.write('breakpoint3');
       if ((square & 0x88) == 0)
         document.getElementById(square).classList.remove('highlight');    
   }
-  document.write('breakpoint5');
+
   // handle engine output
   function makeEngineMove(depth) {
     // search position
@@ -475,7 +481,7 @@ document.write('breakpoint3');
       document.getElementById(bestTargetSquare).classList.add('highlight');
     }  
   }
-document.write('breakpoint6');
+
   // update board view
   function drawBoard() {
     // clear previous board view
@@ -553,7 +559,7 @@ document.write('breakpoint6');
     // render chess board to screen
     document.write(chessBoard);
   };
-  document.write('breakpoint7');
+
   // parse & init search depth
   if (window.location.href.includes('searchDepth'))
     searchDepth = parseInt(window.location.href.split('searchDepth=')[1].split('&')[0])
@@ -565,9 +571,8 @@ document.write('breakpoint6');
       makeEngineMove(searchDepth);
     }
   }
-  
-  document.write('breakpoint8');
+
   // initially render board view
-  //drawBoard();
-document.write('breakpoint9');*/
+  drawBoard();
+
 </script>
