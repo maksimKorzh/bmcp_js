@@ -496,25 +496,25 @@
       </style>
     `);
     
-     //-moz-user-select: none;
-     //-webkit-user-select: none;
-     // -ms-user-select:none;
-     // user-select:none;
-     //-o-user-select:none;
-    
     // create HTML table tag (disable text selection, adjust mouse pointer)
     var chessBoard = `<table id="board"
                              bgcolor="#996633"
                              align="center"
                              cellspacing="1"
                              style="cursor: pointer;
-                                  
+                          -moz-user-select: none;
+                       -webkit-user-select: none;
+                           -ms-user-select: none;
+                               user-select: none;
+                            -o-user-select: none;
                                     border: 10px solid #996633;"
                              unselectable="on"
-                             onselectstart="return false;" 
-                             onmousedown="return false;"
-                             ontouchstart="(e) => {e.event.stopPropagation()}"
-                             ontouchcancel="(e) => {e.event.stopPropagation()}"`;
+                             
+                             onmousedown="return false;"`;
+
+
+//onselectstart="return false;" 
+
 
     // loop over board rows
     for (var row = 0; row < 8; row++)
