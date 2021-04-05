@@ -482,11 +482,43 @@
     }  
   }
 
+function drawBoard(){
+  // create HTML rable tag
+  var chess_board = '<table align="center" cellspacing="0">';
+  
+  // loop over board rows
+  for (var row = 0; row < 8; row++)
+  {
+    // create table row
+    chess_board += '<tr>'
+    
+    // loop over board columns
+    for (var col = 0; col < 16; col++)
+    {
+      // init square
+      var square = row * 16 + col;
+      
+      // make sure square is on board
+      if ((square & 0x88) == 0)
+        // create table cell
+        chess_board += '<td align="center" id="' + square + '"bgcolor="#' + ( ((col + row) % 2) ? 'aaa' : 'eee') + '" width="60" height="60" style="font-size: 50px;" onclick="makeUserMove(this.id)">' + pieces[board[square] & 15] + '</td>'
+    }
+    
+    // close table row tag
+    chess_board += '</tr>'
+  }
+  
+  // close div tag
+  chess_board += '</table>';
+  
+  // render chess board to screen
+  document.write(chess_board);
+}
   // update board view
-  function drawBoard() {
+  /*function drawBoard() {
     // clear previous board view
     try { document.head.innerHTML = ''; document.body.innerHTML = ''; }
-    catch (e) {/* nothing to remove when board wasn't initially rendered */}
+    catch (e) {}
     
     // add classes for highlighting
     document.write(`
@@ -502,7 +534,7 @@
                              cellspacing="1"`;
     
     // create HTML table tag (disable text selection, adjust mouse pointer)
-    /*var chessBoard = `<table id="board"
+    var chessBoard = `<table id="board"
                              bgcolor="#996633"
                              align="center"
                              cellspacing="1"
@@ -518,7 +550,7 @@
                              onmousedown="return false;"
                              ontouchstart="(e) => {e.event.stopPropagation()}"
                              ontouchcancel="(e) => {e.event.stopPropagation()}"`;
-*/
+
     // loop over board rows
     for (var row = 0; row < 8; row++)
     {     
@@ -561,7 +593,7 @@
     
     // render chess board to screen
     document.write(chessBoard);
-  };
+  };*/
   
   // parse & init search depth
   if (window.location.href.includes('searchDepth'))
