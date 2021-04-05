@@ -489,12 +489,12 @@
     catch (e) {/* nothing to remove when board wasn't initially rendered */}
     
     // add classes for highlighting
-    document.write(`
+    /*document.write(`
     <head>
       <style>
         .highlight { box-shadow: inset 0px 0px 3px 3px #ff3300; }
         .mate { box-shadow: inset 0px 0px 5px 5px red; }
-      </style></head>`);
+      </style></head>`);*/
     
     // create HTML table tag (disable text selection, adjust mouse pointer)
     var chessBoard = `<table id="board"
@@ -511,8 +511,8 @@
                              unselectable="on"
                              onselectstart="return false;" 
                              onmousedown="return false;"
-                             ontouchstart="(e) => {e.preventDefault && e.preventDefault()}"
-                             ontouchcancel="(e) => {e.preventDefault && e.preventDefault()}"`;
+                             ontouchstart="(e) => {e.event.stopPropagation()}"
+                             ontouchcancel="(e) => {e.event.stopPropagation()}"`;
 
     // loop over board rows
     for (var row = 0; row < 8; row++)
