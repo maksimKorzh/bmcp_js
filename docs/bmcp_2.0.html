@@ -178,7 +178,7 @@
   \******************************/
 
   // search board position for the best move
-  function search(sideToMove, alpha, beta, depth, validate) {
+  function searchF(sideToMove, alpha, beta, depth, validate) {
     // we are in the leaf node
     if (depth == 0) {
       // static evaluation score
