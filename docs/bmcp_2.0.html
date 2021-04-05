@@ -1,3 +1,8 @@
+<div id="board"></div>
+<style>
+  .highlight { box-shadow: inset 0px 0px 3px 3px #ff3300; }
+  .mate { box-shadow: inset 0px 0px 5px 5px red; }
+</style>
 <script>
 
   /*******************************************\
@@ -407,7 +412,7 @@
       document.getElementById(clickSquare).classList.add('highlight');
       
       // make computer move in response
-      setTimeout("makeEngineMove(searchDepth)", 100);
+      setTimeout(function() { makeEngineMove(searchDepth) }, 100);
     }
   }
 
@@ -484,18 +489,6 @@
 
   // update board view
   function drawBoard() {
-    // clear previous board view
-    try { document.head.innerHTML = ''; document.body.innerHTML = ''; }
-    catch (e) {}
-    
-    // add classes for highlighting
-    document.write(`
-      <style>
-        .highlight { box-shadow: inset 0px 0px 3px 3px #ff3300; }
-        .mate { box-shadow: inset 0px 0px 5px 5px red; }
-      </style>
-    `);
-    
     // create HTML table tag (disable text selection, adjust mouse pointer)
     var chessBoard = `<table id="board"
                              bgcolor="#996633"
@@ -512,19 +505,13 @@
                              onselectstart="return false;"
                              onmousedown="return false;"`;
 
-
-// cursor: pointer;
-
-
     // loop over board rows
-    for (var row = 0; row < 8; row++)
-    {     
+    for (var row = 0; row < 8; row++) {     
       // create table row
       chessBoard += '<tr>'
       
       // loop over board columns
-      for (var col = 0; col < 16; col++)
-      {
+      for (var col = 0; col < 16; col++) {
         // custom file and rank for board flipping
         var file, rank;
         
@@ -557,7 +544,7 @@
     chessBoard += '</table>';
     
     // render chess board to screen
-    document.write(chessBoard);
+    document.getElementById('board').innerHTML = chessBoard;
   };
 
   // parse & init search depth
