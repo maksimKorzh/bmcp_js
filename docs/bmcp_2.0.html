@@ -555,7 +555,10 @@
   if (window.location.href.includes('color')) {
     if (window.location.href.split('color=')[1].split('&')[0] == 'black') {
       flip = 1;
-      makeEngineMove(searchDepth);
+      
+      setTimeout(function() {
+        makeEngineMove(searchDepth);
+      }, 1000);
     }
   }
 
